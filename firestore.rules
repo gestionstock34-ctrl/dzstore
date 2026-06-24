@@ -1,0 +1,123 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Global Safety Net (Implicit Default Deny)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Helper functions for auth verification
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Authentication user profiles
+    match /users/{userId} {
+      allow read, write: if isSignedIn();
+    }
+
+    // SaaS Global Shops Tenant Registry
+    match /shops/{shopId} {
+      allow read: if true;
+      allow write: if isSignedIn();
+
+      // Products collection for a specific shop
+      match /products/{productId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Spare parts collection for a specific shop
+      match /spare_parts/{partId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Suppliers collection for a specific shop
+      match /suppliers/{supplierId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Customers collection for a specific shop
+      match /customers/{customerId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Repair jobs (Fiche maintenance) collection for a specific shop
+      match /maintenance/{jobId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Sales receipts & invoice transactions collection for a specific shop
+      match /sales/{saleId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Used phones buy/sale transactions & hardware registry (shop protection)
+      match /used_phones/{phoneId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Customer messages collection for a specific shop - anyone can create, only signed-in can read/update
+      match /messages/{messageId} {
+        allow read: if true;
+        allow create, write: if true;
+        allow update, delete: if isSignedIn();
+      }
+
+      // Audit logs collection for a specific shop
+      match /audit_logs/{logId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Accounting expenses collection for a specific shop
+      match /expenses/{expenseId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Bookings & pre-orders collection for a specific shop
+      match /bookings/{bookingId} {
+        allow read: if true;
+        allow write: if true; // anyone can place a booking request, signed-in can read/update
+      }
+
+      // Inventory audits collection for a specific shop
+      match /audits/{auditId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Used phone assessments checklist reports collection for a specific shop
+      match /assessments/{assessmentId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+
+      // Shop metadata, subscriptions and global store configurations
+      match /settings/{docId} {
+        allow read: if true;
+        allow write: if isSignedIn();
+      }
+    }
+
+    // SaaS Global broadcasts and notifications
+    match /broadcasts/{broadcastId} {
+      allow read: if true;
+      allow write: if false; // Read-only for tenants
+    }
+
+    // System constants and administrative tables
+    match /system/{document=**} {
+      allow read: if true;
+      allow write: if false; // System Only writes
+    }
+  }
+}

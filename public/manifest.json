@@ -1,0 +1,19 @@
+{
+  "name": "DzStore - SaaS POS, Inventory & Maintenance",
+  "short_name": "DzStore",
+  "description": "منصة DzStore الاحترافية لإدارة مبيعات الكاشير، الضمان، الصيانة، و المخزون للمحلات بالتكامل مع تيلغرام.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#064e3b",
+  "theme_color": "#064e3b",
+  "orientation": "any",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Phone Shop and Maintenance POS",
+  "description": "An advanced, high-performance web app for managing mobile phone shops, accessory sales, and phone/computer maintenance. Supports POS barcode scanning, dual currencies (Algerian Dinar, Euro), translations (AR, FR, EN), multi-role users, supplier credit, and offline/online storage with tenant admin dashboard.",
+  "requestFramePermissions": ["camera", "microphone", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#022c22" />
+      <stop offset="100%" stop-color="#064e3b" />
+    </linearGradient>
+    <linearGradient id="iconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#f59e0b" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Base Rounded Background Canvas -->
+  <rect width="512" height="512" rx="128" fill="url(#bgGrad)" />
+
+  <!-- Abstract Store Structure & Shopping Bag & Phone Wrench Matrix -->
+  <!-- Inner circular ring -->
+  <circle cx="256" cy="256" r="190" fill="none" stroke="url(#iconGrad)" stroke-width="8" stroke-dasharray="12 8" opacity="0.4" />
+
+  <!-- Stylized Shop / Grid -->
+  <g transform="translate(128, 128)" filter="url(#glow)">
+    <!-- High-tech Phone Frame combined with terminal screen -->
+    <rect x="56" y="10" width="144" height="236" rx="24" fill="none" stroke="url(#iconGrad)" stroke-width="12" />
+    <!-- Speaker slit -->
+    <line x1="112" y1="26" x2="144" y2="26" stroke="url(#iconGrad)" stroke-width="6" stroke-linecap="round" />
+    <!-- Screen Inner Circle (Success Radar) -->
+    <circle cx="128" cy="118" r="48" fill="none" stroke="url(#accentGrad)" stroke-width="10" stroke-linecap="round" stroke-dasharray="0 18" />
+    
+    <!-- Maintenance Wrench & Gear -->
+    <path d="M 128,118 L 180,165" stroke="url(#accentGrad)" stroke-width="12" stroke-linecap="round" />
+    <circle cx="128" cy="118" r="14" fill="#fbbf24" />
+
+    <!-- POS checkmark -->
+    <path d="M 104,118 L 120,132 L 152,100" fill="none" stroke="#ffffff" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Glowing accent star nodes -->
+  <circle cx="140" cy="140" r="10" fill="#fbbf24" filter="url(#glow)" />
+  <circle cx="370" cy="370" r="14" fill="#34d399" filter="url(#glow)" />
+  <circle cx="390" cy="150" r="8" fill="#fbbf24" />
+</svg>

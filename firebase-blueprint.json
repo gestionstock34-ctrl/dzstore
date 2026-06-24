@@ -1,0 +1,68 @@
+{
+  "entities": {
+    "ShopTenant": {
+      "title": "ShopTenant",
+      "description": "A tenant representing a shop in the SaaS ecosystem",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "ownerEmail": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "stampUrl": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "ownerEmail", "phone", "status"]
+    },
+    "AppUser": {
+      "title": "AppUser",
+      "description": "A user credentials and info within a specific shop",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "shopId": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "role": { "type": "string" },
+        "isActive": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "shopId", "email", "name", "role", "isActive"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "A standard inventory item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "shopId": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "brand": { "type": "string" },
+        "barcode": { "type": "string" },
+        "quantity": { "type": "number" },
+        "minQuantity": { "type": "number" },
+        "purchasePrice": { "type": "number" },
+        "sellingPrice": { "type": "number" },
+        "serialNumbers": { "type": "array" },
+        "dateAdded": { "type": "string" }
+      },
+      "required": ["id", "shopId", "name", "barcode", "quantity", "purchasePrice", "sellingPrice"]
+    }
+  },
+  "firestore": {
+    "/shops/{shopId}": {
+      "schema": "ShopTenant",
+      "description": "Active shops tenant lists"
+    },
+    "/users/{userId}": {
+      "schema": "AppUser",
+      "description": "Global user metadata lists mapped to tenant shops"
+    }
+  }
+}

@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Dynamic color overrides to bind all emerald-style components to selected active custom themes */
+:root {
+  --theme-primary: #10b981;
+  --theme-hover: #047857;
+  --theme-light: #ecfdf5;
+  --theme-light-border: #a7f3d0;
+  --theme-text-dark: #047857;
+  --theme-accent: #34d399;
+  --theme-primary-rgb: 16, 185, 129;
+}
+
+/* Map tailwind green utility classes to style variables */
+.bg-emerald-50, .bg-emerald-50\/40, .dark \.bg-emerald-950\/40 { background-color: var(--theme-light) !important; }
+.bg-emerald-100 { background-color: var(--theme-light) !important; }
+.bg-emerald-250 { background-color: var(--theme-light) !important; }
+.bg-emerald-500 { background-color: var(--theme-accent) !important; }
+.bg-emerald-500\/10, .bg-emerald-500\/20 { background-color: rgba(var(--theme-primary-rgb), 0.1) !important; }
+.bg-emerald-600 { background-color: var(--theme-primary) !important; }
+.bg-emerald-700 { background-color: var(--theme-hover) !important; }
+.bg-emerald-800 { background-color: var(--theme-hover) !important; }
+
+.hover\:bg-emerald-50:hover { background-color: var(--theme-light) !important; }
+.hover\:bg-emerald-100:hover { background-color: var(--theme-light) !important; }
+.hover\:bg-emerald-600:hover { background-color: var(--theme-primary) !important; }
+.hover\:bg-emerald-700:hover { background-color: var(--theme-hover) !important; }
+.hover\:bg-emerald-800:hover { background-color: var(--theme-hover) !important; }
+
+.text-emerald-50 { color: var(--theme-light) !important; }
+.text-emerald-100 { color: var(--theme-light) !important; }
+.text-emerald-200 { color: var(--theme-accent) !important; }
+.text-emerald-350 { color: var(--theme-accent) !important; }
+.text-emerald-300 { color: var(--theme-accent) !important; }
+.text-emerald-400 { color: var(--theme-accent) !important; }
+.text-emerald-500 { color: var(--theme-primary) !important; }
+.text-emerald-600 { color: var(--theme-text-dark) !important; }
+.text-emerald-700 { color: var(--theme-text-dark) !important; }
+.text-emerald-800 { color: var(--theme-text-dark) !important; }
+
+.border-emerald-100 { border-color: var(--theme-light-border) !important; }
+.border-emerald-200 { border-color: var(--theme-light-border) !important; }
+.border-emerald-250 { border-color: var(--theme-light-border) !important; }
+.border-emerald-300 { border-color: var(--theme-accent) !important; }
+
+.focus\:ring-emerald-500:focus { --tw-ring-color: var(--theme-primary) !important; }
+.focus\:ring-emerald-600:focus { --tw-ring-color: var(--theme-primary) !important; }
+
+body {
+  font-family: 'Cairo', "Inter", sans-serif;
+  background-color: #f7fcf9;
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(16, 185, 129, 0.07) 0px, transparent 40%),
+    radial-gradient(at 90% 80%, rgba(20, 184, 166, 0.07) 0px, transparent 40%),
+    radial-gradient(at 50% 10%, rgba(14, 165, 233, 0.04) 0px, transparent 40%);
+  background-attachment: fixed;
+  color: #1e293b;
+}
+
+/* Beautiful Premium Glow and Hover Utilities */
+.glowing-card-emerald {
+  box-shadow: 0 0 20px -3px rgba(16, 185, 129, 0.12), 0 8px 32px 0 rgba(15, 23, 42, 0.04);
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+.glowing-btn-emerald {
+  box-shadow: 0 4px 14px 0 rgba(16, 185, 129, 0.3);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glowing-btn-emerald:hover {
+  box-shadow: 0 6px 20px 0 rgba(16, 185, 129, 0.45);
+  transform: translateY(-1px);
+}
+.glowing-btn-emerald:active {
+  transform: translateY(1px);
+}
+
+/* Frosted Glass Core Styling */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 41, 55, 0.04);
+}
+
+.glass-panel-dark {
+  background: rgba(15, 23, 42, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.25);
+}
+
+.glass-panel-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 20px 0 rgba(31, 38, 135, 0.03);
+}
+
+/* Bulletproof Pure Black & Slate-900 Dark Mode styling */
+.dark body, 
+.dark #root {
+  background-color: #000000 !important;
+  background-image: none !important;
+  color: #f3f4f6 !important;
+}
+
+.dark .glass-panel,
+.dark .bg-white,
+.dark .bg-slate-50,
+.dark .bg-slate-100,
+.dark .bg-slate-200,
+.dark .bg-zinc-50,
+.dark .bg-slate-50\/50,
+.dark .bg-slate-50\/70,
+.dark .bg-slate-200\/55,
+.dark [class*="bg-white"],
+.dark [class*="bg-slate-50"],
+.dark [class*="bg-slate-100"] {
+  background-color: #111827 !important; /* Tailwind slate-900 */
+  border-color: #1f2937 !important;       /* Tailwind slate-800 */
+  color: #f3f4f6 !important;
+}
+
+.dark aside,
+.dark header,
+.dark .bg-white.rounded-3xl,
+.dark .bg-white.rounded-2xl {
+  background-color: #0d1117 !important; /* Deep blackish gray and border slate-800 */
+  border-color: #1f2937 !important;
+}
+
+/* Ensure all form widgets don't stay light under dark-mode */
+.dark select,
+.dark input,
+.dark textarea {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border-color: #374151 !important;
+}
+
+.dark select option,
+.dark select optgroup {
+  background-color: #111827 !important;
+  color: #ffffff !important;
+}
+
+/* Text elements styling fix for high legibility, avoiding white on white */
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-700,
+.dark .text-slate-600,
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-gray-600,
+.dark label {
+  color: #f3f4f6 !important;
+}
+
+.dark .text-slate-500,
+.dark .text-gray-500,
+.dark .text-slate-400,
+.dark .text-gray-400 {
+  color: #9ca3af !important;
+}
+
+.dark svg {
+  stroke-width: 2px;
+}
+
+/* Soft Input frosting */
+.glass-input {
+  background: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(16, 185, 129, 0.15) !important;
+  border-radius: 12px !important;
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: rgba(16, 185, 129, 0.6) !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.15) !important;
+}
+
+/* Beautiful custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Elegant animations for glass containers sliding/fading in */
+@keyframes fadeInBlur {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    backdrop-filter: blur(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    backdrop-filter: blur(12px);
+  }
+}
+
+.animate-glass-in {
+  animation: fadeInBlur 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

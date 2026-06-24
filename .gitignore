@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist-desktop/
+release/
+out/
+
+*.exe
+*.blockmap
+latest.yml
